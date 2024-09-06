@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hřbitovní stránka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        /* Styly pro odkazy a hroby */
+        .tombstone {
+            position: absolute;
+            cursor: pointer;
+            color: black; /* Barva textu odkazu */
+        }
+
+        .info-card {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border: 1px solid #666;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pokud najedete myší na hrob, zobrazí se informační karta */
+        .tombstone:hover .info-card {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Obrázek hřbitova s odkazy a informačními kartami -->
+    <div style="position: relative;">
+        <img src="hrbitov.jpg" alt="Hřbitovní obrazek" style="width: 100%; height: auto;">
+        <!-- Odkazy a informační karty pro jednotlivé hroby -->
+        <div class="tombstone hrob1" style="top: 8%; left: 37.5%;">
+            L10/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.1</h3>
+                <p>Toto jsou informace o hrobu číslo 1.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob2" style="top: 6.5%; left: 45%;">
+            L10/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.2</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob3" style="top: 6.5%; left: 51.5%;">
+            C1/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.3</h3>
+                <p>Toto jsou informace o hrobu číslo 3.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob4" style="top: 7.5%; left: 62%;">
+            P10/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob5" style="top: 11.5%; left: 69%;">
+            P10/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.5</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob6" style="top: 11.5%; left: 74%;">
+            P10/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.6</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob7" style="top: 7.5%; left: 85%;">
+            P10/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob8" style="top: 14.5%; left: 11.5%;">
+            L9/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob9" style="top: 16%; left: 22.5%;">
+            L9/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob10" style="top: 16%; left: 31.7%;">
+            L9/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob11" style="top: 16%; left: 40%;">
+            L9/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob12" style="top: 16%; left: 45%;">
+            L9/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob13" style="top: 17.5%; left: 61.7%;">
+            P9/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob14" style="top: 17%; left: 71%;">
+            P9/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob15" style="top: 16.5%; left: 79%;">
+            P9/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob16" style="top: 16.5%; left: 85%;">
+            P9/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob17" style="top: 24%; left: 14%;">
+            L8/09
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob18" style="top: 25%; left: 87%;">
+            P8/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob19" style="top: 29.8%; left: 11.5%;">
+            L8/08
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob20" style="top: 33.5%; left: 11.7%;">
+            L8/07
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob21" style="top: 29%; left: 20%;">
+            L8/06
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob22" style="top: 34.5%; left: 20%;">
+            L8/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob23" style="top: 30%; left: 24.5%;">
+            L8/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob24" style="top: 31.8%; left: 29.5%;">
+            L8/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob25" style="top: 32.5%; left: 35%;">
+            L8/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob26" style="top: 32.5%; left: 42%;">
+            L8/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob27" style="top: 30%; left: 61%;">
+            P8/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob28" style="top: 29.6%; left: 71.2%;">
+            P8/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob29" style="top: 29%; left: 77.3%;">
+            P8/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob30" style="top: 39%; left: 11.5%;">
+            L7/06
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob31" style="top: 39%; left: 20%;">
+            L7/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob32" style="top: 39%; left: 25%;">
+            L7/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob33" style="top: 39%; left: 30.5%;">
+            L7/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob34" style="top: 38%; left: 37%;">
+            L7/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob35" style="top: 39.5%; left: 44%;">
+            L7/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob36" style="top: 38%; left: 60.5%;">
+            P7/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob37" style="top: 38%; left: 75.5%;">
+            P7/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob38" style="top: 38.5%; left: 88%;">
+            P7/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob39" style="top: 49%; left: 11.7%;">
+            L6/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob40" style="top: 49%; left: 20%;">
+            L6/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob41" style="top: 48%; left: 42%;">
+            L6/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob42" style="top: 48%; left: 59.5%;">
+            P6/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob43" style="top: 47%; left: 68%;">
+            P6/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob44" style="top: 48.5%; left: 74%;">
+            P6/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob45" style="top: 48.5%; left: 79.5%;">
+            P6/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob46" style="top: 49%; left: 88%;">
+            P6/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob47" style="top: 56%; left: 12.5%;">
+            L5/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob48" style="top: 56%; left: 20.5%;">
+            L5/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob49" style="top: 55%; left: 26%;">
+            L5/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob50" style="top: 54.5%; left: 34%;">
+            L5/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob51" style="top: 54.5%; left: 57.5%;">
+            P5/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob52" style="top: 58%; left: 57.5%;">
+            P5/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob53" style="top: 56%; left: 65%;">
+            P5/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob54" style="top: 56%; left: 72%;">
+            P5/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob55" style="top: 56%; left: 80.5%;">
+            P5/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob56" style="top: 54.2%; left: 88.5%;">
+            P5/06
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob57" style="top: 57%; left: 89%;">
+            P5/07
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob58" style="top: 60.5%; left: 9%;">
+            L4/07
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob59" style="top: 66.5%; left: 11.5%;">
+            L4/06
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob60" style="top: 64.5%; left: 20.5%;">
+            L4/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob61" style="top: 64.5%; left: 26%;">
+            L4/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob62" style="top: 64.5%; left: 31.5%;">
+            L4/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob63" style="top: 64.5%; left: 37.5%;">
+            L4/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob64" style="top: 64.5%; left: 45%;">
+            L4/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob65" style="top: 63.5%; left: 57.5%;">
+            P4/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob66" style="top: 63.5%; left: 63.5%;">
+            P4/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob67" style="top: 63.5%; left: 71.5%;">
+            P4/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob68" style="top: 61.5%; left: 78.5%;">
+            P4/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob69" style="top: 62%; left: 83.5%;">
+            P4/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob70" style="top: 62.9%; left: 88.5%;">
+            P4/06
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob71" style="top: 72.5%; left: 10%;">
+            L3/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob72" style="top: 73%; left: 20.5%;">
+            L3/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob73" style="top: 73%; left: 30%;">
+            L3/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob74" style="top: 71.5%; left: 38.5%;">
+            L3/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob75" style="top: 72%; left: 44%;">
+            L3/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob76" style="top: 72%; left: 59.5%;">
+            P3/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob77" style="top: 72%; left: 67.5%;">
+            P3/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob78" style="top: 72%; left: 73.5%;">
+            P3/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob79" style="top: 72.2%; left: 79%;">
+            P3/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob80" style="top: 72.3%; left: 86.5%;">
+            P3/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob81" style="top: 77%; left: 10%;">
+            L2/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob82" style="top: 82.5%; left: 11%;">
+            L2/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob83" style="top: 81.5%; left: 20.5%;">
+            L2/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob84" style="top: 81.5%; left: 32%;">
+            L2/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob85" style="top: 82.9%; left: 56%;">
+            P2/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob86" style="top: 81.5%; left: 66%;">
+            P2/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob87" style="top: 79.9%; left: 71.5%;">
+            P2/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob88" style="top: 83.3%; left: 71.5%;">
+            P2/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob89" style="top: 81.5%; left: 79.5%;">
+            P2/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob90" style="top: 86%; left: 89.5%;">
+            P2/06
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob90" style="top: 82.5%; left: 89.5%;">
+            P2/07
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob91" style="top: 78.5%; left: 89.8%;">
+            P2/08
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob92" style="top: 88.5%; left: 8%;">
+            L1/06
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob92" style="top: 92.5%; left: 9.5%;">
+            L1/05
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob93" style="top: 92%; left: 15.5%;">
+            L1/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob94" style="top: 90%; left: 25%;">
+            L1/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob95" style="top: 89.5%; left: 33%;">
+            L1/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob96" style="top: 91%; left: 39%;">
+            L1/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob97" style="top: 90%; left: 66.2%;">
+            P1/01
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob98" style="top: 90%; left: 74%;">
+            P1/02
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob99" style="top: 90.2%; left: 81.2%;">
+            P1/03
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+        <div class="tombstone hrob100" style="top: 91%; left: 87.6%;">
+            P1/04
+            <div class="info-card">
+                <h3>Informace o hrobu č.4</h3>
+                <p>Toto jsou informace o hrobu číslo 2.</p>
+            </div>
+        </div>
+
+
+        <var></var>
+
+        <!-- Pokračujte pro další hroby -->
+    </div>
+</body>
+</html>
